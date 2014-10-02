@@ -1,4 +1,4 @@
-package jQuery.properties;
+package com.jQuery.properties;
 
 public final class Position {
 	public final Integer left = 0;

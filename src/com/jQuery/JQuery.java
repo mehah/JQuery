@@ -1,11 +1,10 @@
-package jQuery;
-
-import jQuery.functions.Each;
-import jQuery.properties.Position;
+package com.jQuery;
 
 import java.util.Arrays;
 
 import com.google.gson.JsonObject;
+import com.jQuery.functions.Each;
+import com.jQuery.properties.Position;
 
 import greencode.jscript.DOM;
 import greencode.jscript.DOMHandle;

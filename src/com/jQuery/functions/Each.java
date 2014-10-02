@@ -1,4 +1,4 @@
-package jQuery.functions;
+package com.jQuery.functions;
 
 import greencode.jscript.Element;
 
