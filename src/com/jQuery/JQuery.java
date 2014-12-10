@@ -20,7 +20,7 @@ public class JQuery extends DOM {
 		this(selector, GreenContext.getInstance().currentWindow());
 	}
 	
-	public JQuery(Element e) {
+	public JQuery(Node e) {
 		this(e, GreenContext.getInstance().currentWindow());
 	}
 	
@@ -35,7 +35,7 @@ public class JQuery extends DOM {
 			DOMHandle.registerReturnByCommand(window, DOMHandle.getUID(this), "jQuery", selector);
 	}
 	
-	public JQuery(Element e, Window window) {
+	public JQuery(Node e, Window window) {
 		super(window);
 		DOMHandle.registerReturnByCommand(window, DOMHandle.getUID(this), "jQuery", e);
 	}
