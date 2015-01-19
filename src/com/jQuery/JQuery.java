@@ -534,19 +534,18 @@ public class JQuery extends DOM {
 		return jQuery;
 	}
 	
-	public JQuery html(String html)
-	{
+	public JQuery html(String html) {
+		DOMHandle.setVariableValue(this, "jquery.html", html);
 		DOMHandle.execCommand(this, "html", html);
 		return this;
 	}
 	
-	public String html()
-	{
+	public String html() {
 		return DOMHandle.getVariableValueByCommand(this, "jquery.html", String.class, "html");
 	}
 			
-	public JQuery text(String text)
-	{
+	public JQuery text(String text){
+		DOMHandle.setVariableValue(this, "jquery.text", text);
 		DOMHandle.execCommand(this, "text", text);
 		return this;
 	}
@@ -563,13 +562,11 @@ public class JQuery extends DOM {
 		return this;
 	}
 	
-	public String val()
-	{
+	public String val()	{
 		return DOMHandle.getVariableValueByCommand(this, "jquery.val", String.class, "val");
 	}
 	
-	public<C> C val(Class<C> cast)
-	{
+	public<C> C val(Class<C> cast) {
 		return DOMHandle.getVariableValueByCommand(this, "jquery.val", cast, "val");
 	}
 	
