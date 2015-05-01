@@ -1104,7 +1104,7 @@ public class JQuery extends DOM {
 	
 	private JQuery __clone(boolean... args) {	
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "close", args);		
+		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "clone", args);		
 		return jQuery;
 	}
 	
