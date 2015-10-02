@@ -9,6 +9,7 @@ import com.jQuery.properties.Position;
 import greencode.jscript.DOM;
 import greencode.jscript.DOMHandle;
 import greencode.jscript.Element;
+import greencode.jscript.ElementHandle;
 import greencode.jscript.FunctionHandle;
 import greencode.jscript.Node;
 import greencode.jscript.Window;
@@ -1157,9 +1158,17 @@ public class JQuery extends DOM {
 		return toArray();
 	}
 	
-	public Element get(int index) {
-		Element e = greencode.jscript.$DOMHandle.getElementInstance(this.window);
-		DOMHandle.registerElementByVector(this, e, index);
+	public Element get(int index) {		
+		return get(index, Element.class);
+	}
+	
+	public <T extends Element> T get(int index, Class<T> clazz) {
+		T e = DOMHandle.getVariableValue(this, "get."+index, clazz);
+		if(e == null) {
+			e = ElementHandle.cast(greencode.jscript.$DOMHandle.getElementInstance(this.window), clazz);
+			DOMHandle.setVariableValue(this, "get."+index, e);
+			DOMHandle.registerElementByVector(this, e, index);
+		}
 		
 		return e;
 	}
@@ -1310,5 +1319,13 @@ public class JQuery extends DOM {
 		JQuery jQuery = new JQuery(window);
 		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "slice", start, end);		
 		return jQuery;
+	}
+	
+	/**
+	 * No oficial Method
+	 */
+	public JQuery executePlugin(String methodName, Object... args) {
+		DOMHandle.execCommand(this, methodName, args);
+		return this;
 	}
 }
