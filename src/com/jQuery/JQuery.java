@@ -8,11 +8,11 @@ import com.jQuery.properties.Position;
 
 import greencode.jscript.DOM;
 import greencode.jscript.DOMHandle;
-import greencode.jscript.Element;
-import greencode.jscript.ElementHandle;
-import greencode.jscript.FunctionHandle;
-import greencode.jscript.Node;
-import greencode.jscript.Window;
+import greencode.jscript.dom.Element;
+import greencode.jscript.dom.ElementHandle;
+import greencode.jscript.dom.FunctionHandle;
+import greencode.jscript.dom.Node;
+import greencode.jscript.dom.Window;
 import greencode.kernel.GreenContext;
 import greencode.util.StringUtils;
 
@@ -1031,7 +1031,7 @@ public class JQuery extends DOM {
 	public <T extends Element> T get(int index, Class<T> clazz) {
 		T e = DOMHandle.getVariableValue(this, "get." + index, clazz);
 		if(e == null) {
-			e = ElementHandle.cast(greencode.jscript.$DOMHandle.getElementInstance(this.window), clazz);
+			e = ElementHandle.cast(greencode.jscript.dom.$Window.getElementInstance(this.window), clazz);
 			DOMHandle.setVariableValue(this, "get." + index, e);
 			DOMHandle.registerElementByVector(this, e, index);
 		}
