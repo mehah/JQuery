@@ -33,12 +33,12 @@ public class JQuery extends DOM {
 		super(window);
 
 		if(!selector.isEmpty())
-			DOMHandle.registerReturnByCommand(window, DOMHandle.getUID(this), "jQuery", selector);
+			DOMHandle.registerReturnByCommand(this, window, "jQuery", selector);
 	}
 
 	public JQuery(Node e, Window window) {
 		super(window);
-		DOMHandle.registerReturnByCommand(window, DOMHandle.getUID(this), "jQuery", e);
+		DOMHandle.registerReturnByCommand(this, window, "jQuery", e);
 	}
 
 	public JQuery(JQuery j, Window window) {
@@ -441,7 +441,7 @@ public class JQuery extends DOM {
 
 	private JQuery __replaceAll(Object target) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "replaceAll", target);
+		DOMHandle.registerReturnByCommand(jQuery, this, "replaceAll", target);
 		return jQuery;
 	}
 
@@ -459,7 +459,7 @@ public class JQuery extends DOM {
 
 	private JQuery __replaceWith(Object target) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "replaceWith", target);
+		DOMHandle.registerReturnByCommand(jQuery, this, "replaceWith", target);
 		return jQuery;
 	}
 
@@ -744,19 +744,19 @@ public class JQuery extends DOM {
 
 	public JQuery filter(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "filter", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "filter", selector);
 		return jQuery;
 	}
 
 	public JQuery find(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "find", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "find", selector);
 		return jQuery;
 	}
 
 	public JQuery end() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "end");
+		DOMHandle.registerReturnByCommand(jQuery, this, "end");
 		return jQuery;
 	}
 
@@ -819,9 +819,9 @@ public class JQuery extends DOM {
 	private JQuery __parent(String command, String selector) {
 		JQuery jQuery = new JQuery(window);
 		if(selector == null)
-			DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), command);
+			DOMHandle.registerReturnByCommand(jQuery, this, command);
 		else
-			DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), command, selector);
+			DOMHandle.registerReturnByCommand(jQuery, this, command, selector);
 		return jQuery;
 	}
 
@@ -839,7 +839,7 @@ public class JQuery extends DOM {
 
 	private JQuery __closest(Object o) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "closest", o);
+		DOMHandle.registerReturnByCommand(jQuery, this, "closest", o);
 		return jQuery;
 	}
 
@@ -857,103 +857,103 @@ public class JQuery extends DOM {
 
 	private JQuery __add(Object value) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "add", value);
+		DOMHandle.registerReturnByCommand(jQuery, this, "add", value);
 		return jQuery;
 	}
 
 	public JQuery addBack() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "addBack");
+		DOMHandle.registerReturnByCommand(jQuery, this, "addBack");
 		return jQuery;
 	}
 
 	public JQuery addBack(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "addBack", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "addBack", selector);
 		return jQuery;
 	}
 
 	public JQuery andSelf() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "andSelf");
+		DOMHandle.registerReturnByCommand(jQuery, this, "andSelf");
 		return jQuery;
 	}
 
 	public JQuery children() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "children");
+		DOMHandle.registerReturnByCommand(jQuery, this, "children");
 		return jQuery;
 	}
 
 	public JQuery children(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "children", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "children", selector);
 		return jQuery;
 	}
 
 	public JQuery contents() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "contents");
+		DOMHandle.registerReturnByCommand(jQuery, this, "contents");
 		return jQuery;
 	}
 
 	public JQuery eq(int index) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "eq", index);
+		DOMHandle.registerReturnByCommand(jQuery, this, "eq", index);
 		return jQuery;
 	}
 
 	public JQuery first() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "first");
+		DOMHandle.registerReturnByCommand(jQuery, this, "first");
 		return jQuery;
 	}
 
 	public JQuery last() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "last");
+		DOMHandle.registerReturnByCommand(jQuery, this, "last");
 		return jQuery;
 	}
 
 	public JQuery next() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "next");
+		DOMHandle.registerReturnByCommand(jQuery, this, "next");
 		return jQuery;
 	}
 
 	public JQuery next(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "next", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "next", selector);
 		return jQuery;
 	}
 
 	public JQuery nextAll() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "nextAll");
+		DOMHandle.registerReturnByCommand(jQuery, this, "nextAll");
 		return jQuery;
 	}
 
 	public JQuery nextAll(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "nextAll", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "nextAll", selector);
 		return jQuery;
 	}
 
 	public JQuery nextUntil(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "nextUntil", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "nextUntil", selector);
 		return jQuery;
 	}
 
 	public JQuery nextUntil(String selector, String filter) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "nextUntil", selector, filter);
+		DOMHandle.registerReturnByCommand(jQuery, this, "nextUntil", selector, filter);
 		return jQuery;
 	}
 
 	public JQuery has(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "has", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "has", selector);
 		return jQuery;
 	}
 
@@ -971,7 +971,7 @@ public class JQuery extends DOM {
 
 	private JQuery __clone(boolean... args) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "clone", args);
+		DOMHandle.registerReturnByCommand(jQuery, this, "clone", args);
 		return jQuery;
 	}
 
@@ -1033,7 +1033,7 @@ public class JQuery extends DOM {
 		if(e == null) {
 			e = ElementHandle.cast(greencode.jscript.dom.$Window.getElementInstance(this.window), clazz);
 			DOMHandle.setVariableValue(this, "get." + index, e);
-			DOMHandle.registerElementByVector(this, e, index);
+			DOMHandle.registerReturnByVector(e, this, index);
 		}
 
 		return e;
@@ -1096,73 +1096,73 @@ public class JQuery extends DOM {
 
 	private JQuery __not(Object o) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "not", o);
+		DOMHandle.registerReturnByCommand(jQuery, this, "not", o);
 		return jQuery;
 	}
 
 	public JQuery offsetParent() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "offsetParent");
+		DOMHandle.registerReturnByCommand(jQuery, this, "offsetParent");
 		return jQuery;
 	}
 
 	public JQuery prev() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "prev");
+		DOMHandle.registerReturnByCommand(jQuery, this, "prev");
 		return jQuery;
 	}
 
 	public JQuery prev(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "prev", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "prev", selector);
 		return jQuery;
 	}
 
 	public JQuery prevAll() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "prevAll");
+		DOMHandle.registerReturnByCommand(jQuery, this, "prevAll");
 		return jQuery;
 	}
 
 	public JQuery prevAll(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "prevAll", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "prevAll", selector);
 		return jQuery;
 	}
 
 	public JQuery prevUntil(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "prevUntil", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "prevUntil", selector);
 		return jQuery;
 	}
 
 	public JQuery prevUntil(String selector, String filter) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "prevUntil", selector, filter);
+		DOMHandle.registerReturnByCommand(jQuery, this, "prevUntil", selector, filter);
 		return jQuery;
 	}
 
 	public JQuery siblings() {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "siblings");
+		DOMHandle.registerReturnByCommand(jQuery, this, "siblings");
 		return jQuery;
 	}
 
 	public JQuery siblings(String selector) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "siblings", selector);
+		DOMHandle.registerReturnByCommand(jQuery, this, "siblings", selector);
 		return jQuery;
 	}
 
 	public JQuery slice(int start) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "slice", start);
+		DOMHandle.registerReturnByCommand(jQuery, this, "slice", start);
 		return jQuery;
 	}
 
 	public JQuery slice(int start, int end) {
 		JQuery jQuery = new JQuery(window);
-		DOMHandle.registerReturnByCommand(this, DOMHandle.getUID(jQuery), "slice", start, end);
+		DOMHandle.registerReturnByCommand(jQuery, this, "slice", start, end);
 		return jQuery;
 	}
 
