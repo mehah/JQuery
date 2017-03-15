@@ -22,11 +22,11 @@ public class JQuery extends DOM {
 	}
 
 	public JQuery(Node e) {
-		this(e, GreenContext.getInstance().currentWindow());
+		this(e, DOMHandle.getWindow(e));
 	}
 
 	public JQuery(JQuery j) {
-		this(j, GreenContext.getInstance().currentWindow());
+		this(j, DOMHandle.getWindow(j));
 	}
 
 	public JQuery(String selector, Window window) {
