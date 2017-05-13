@@ -20,7 +20,7 @@ public class JQuery extends DOM {
 	public JQuery(String selector) {
 		this(selector, GreenContext.getInstance().currentWindow());
 	}
-
+	
 	public JQuery(Node e) {
 		this(e, DOMHandle.getWindow(e));
 	}
@@ -29,11 +29,11 @@ public class JQuery extends DOM {
 		this(j, DOMHandle.getWindow(j));
 	}
 
-	public JQuery(String selector, Window window) {
-		super(window);
+	public JQuery(String selector, DOM context) {		
+		super((context instanceof Window ? (Window)context : DOMHandle.getWindow(context)));
 
 		if(!selector.isEmpty())
-			DOMHandle.registerReturnByCommand(this, window, "jQuery", selector);
+			DOMHandle.registerReturnByCommand(this, window, "jQuery", selector, context instanceof Window ? null : context);
 	}
 
 	public JQuery(Node e, Window window) {
