@@ -6,19 +6,19 @@ import com.google.gson.JsonObject;
 import com.jQuery.functions.Each;
 import com.jQuery.properties.Position;
 
-import greencode.jscript.DOM;
-import greencode.jscript.DOMHandle;
-import greencode.jscript.dom.Element;
-import greencode.jscript.dom.ElementHandle;
-import greencode.jscript.dom.FunctionHandle;
-import greencode.jscript.dom.Node;
-import greencode.jscript.dom.Window;
-import greencode.kernel.GreenContext;
-import greencode.util.StringUtils;
+import com.jrender.jscript.DOM;
+import com.jrender.jscript.DOMHandle;
+import com.jrender.jscript.dom.Element;
+import com.jrender.jscript.dom.ElementHandle;
+import com.jrender.jscript.dom.FunctionHandle;
+import com.jrender.jscript.dom.Node;
+import com.jrender.jscript.dom.Window;
+import com.jrender.kernel.JRenderContext;
+import com.jrender.util.StringUtils;
 
 public class JQuery extends DOM {
 	public JQuery(String selector) {
-		this(selector, GreenContext.getInstance().currentWindow());
+		this(selector, JRenderContext.getInstance().currentWindow());
 	}
 	
 	public JQuery(Node e) {
@@ -44,8 +44,8 @@ public class JQuery extends DOM {
 	public JQuery(JQuery j, Window window) {
 		super(window);
 
-		greencode.jscript.$DOMHandle.setUID(this, DOMHandle.getUID(j));
-		greencode.jscript.$DOMHandle.setVariables(this, greencode.jscript.$DOMHandle.getVariables(j));
+		com.jrender.jscript.$DOMHandle.setUID(this, DOMHandle.getUID(j));
+		com.jrender.jscript.$DOMHandle.setVariables(this, com.jrender.jscript.$DOMHandle.getVariables(j));
 	}
 
 	private JQuery(Window window) {
@@ -1031,7 +1031,7 @@ public class JQuery extends DOM {
 	public <T extends Element> T get(int index, Class<T> clazz) {
 		T e = DOMHandle.getVariableValue(this, "get." + index, clazz);
 		if(e == null) {
-			e = ElementHandle.cast(greencode.jscript.dom.$Window.getElementInstance(this.window), clazz);
+			e = ElementHandle.cast(com.jrender.jscript.dom.$Window.getElementInstance(this.window), clazz);
 			DOMHandle.setVariableValue(this, "get." + index, e);
 			DOMHandle.registerReturnByVector(e, this, index);
 		}
