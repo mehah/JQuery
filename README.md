@@ -1,6 +1,6 @@
 jQuery
 =========
-Component for JRender
+Plugin to use [jQuery](http://www.jquery.com/) with [jRender](https://github.com/mehah/jRender).
 
 Example
 ========
